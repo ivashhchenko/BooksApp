@@ -10,21 +10,21 @@ import ObjectMapper
 
 class Book: Mappable {
     
-    var identifier: String!
+    var id: String!
     var title: String!
     var authors: [String]?
-    var image: String!
+    var imageLink: String!
     var description: String?
     var link: String!
     
     required init(map: Map) {}
     
     func mapping(map: Map) {
-        identifier <- map["id"]
+        id <- map["id"]
         title <- map["volumeInfo.title"]
         authors <- map["volumeInfo.authors"]
         description <- map["volumeInfo.description"]
         link <- map["selfLink"]
-        image <- map["volumeInfo.imageLinks.thumbnail"]
+        imageLink <- map["volumeInfo.imageLinks.thumbnail"]
     }
 }

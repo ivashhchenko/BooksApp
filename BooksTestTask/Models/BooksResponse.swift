@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 import ObjectMapper
 
-class BooksListResponse: Mappable {
+class BooksResponse: Mappable {
 
     var totalItems: Int!
     var items: [Book]?
