@@ -24,7 +24,7 @@ class Book: Mappable {
         title <- map["volumeInfo.title"]
         authors <- map["volumeInfo.authors"]
         description <- map["volumeInfo.description"]
-        link <- map["selfLink"]
+        link <- map["volumeInfo.previewLink"]
         imageLink <- map["volumeInfo.imageLinks.thumbnail"]
     }
 }

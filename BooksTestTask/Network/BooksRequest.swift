@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import Alamofire // BooksRequestConverible
+import Alamofire
 
-enum BooksRequestConverible: URLRequestConvertible {
+enum BooksRequest: URLRequestConvertible {
     
     enum Constants {
         static let BaseUrlPath = "https://www.googleapis.com/books/v1"
@@ -34,15 +34,17 @@ enum BooksRequestConverible: URLRequestConvertible {
         switch self {
         case .volumes(let query):
             return ["q" : query]
+
         }
     }
     
     public func asURLRequest() throws -> URLRequest {
         let url = try Constants.BaseUrlPath.asURL()
+      
         
         var request = URLRequest(url: url.appendingPathComponent(path))
         request.httpMethod = method.rawValue
-        
+        print(parameters)
         return try URLEncoding.default.encode(request, with: parameters)
     }
     

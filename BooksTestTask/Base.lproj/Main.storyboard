@@ -23,52 +23,137 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Harry Potter" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dXY-5T-p7x">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write to search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dXY-5T-p7x">
                                 <rect key="frame" x="35" y="109.5" width="344" height="34"/>
                                 <color key="backgroundColor" red="0.20301550630000001" green="0.20301550630000001" blue="0.20301550630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchTextFieldReturnAction:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="xib-b7-N2e"/>
+                                    <action selector="searchTextFieldTouchInsideAction:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="CbI-rg-LZu"/>
+                                </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="z6E-2T-Ndx">
-                                <rect key="frame" x="0.0" y="178.5" width="414" height="683.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="179" width="414" height="717"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SYr-UT-XKX">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="SYr-UT-XKX" customClass="BookTableViewCell" customModule="BooksTestTask" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SYr-UT-XKX" id="gM5-KJ-Gq4">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lja-K5-cVb">
+                                                    <rect key="frame" x="15" y="0.0" width="80" height="100"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="100" id="O5P-r0-chJ"/>
+                                                        <constraint firstAttribute="width" constant="80" id="faA-yo-EdK"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harry Potter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClM-Bf-Mfs">
+                                                    <rect key="frame" x="116" y="16" width="278" height="16.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="278" id="nzG-7c-JaL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="J. K. Rowling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjb-D4-YsA">
+                                                    <rect key="frame" x="116" y="32.5" width="76" height="15"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                                    <color key="textColor" white="0.41562097251009777" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2l-Tf-sBD">
+                                                    <rect key="frame" x="116" y="69" width="26" height="21"/>
+                                                    <color key="tintColor" red="0.082518804640997021" green="0.40283244645514449" blue="0.95139795420121176" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" systemColor="tintColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zN3-uS-qEe">
+                                                    <rect key="frame" x="103" y="93" width="296" height="2"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="Q87-c3-V9j"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="lja-K5-cVb" firstAttribute="top" secondItem="gM5-KJ-Gq4" secondAttribute="top" id="95g-DJ-2BO"/>
+                                                <constraint firstAttribute="trailing" secondItem="zN3-uS-qEe" secondAttribute="trailing" constant="15" id="ChO-nb-mUK"/>
+                                                <constraint firstAttribute="bottom" secondItem="zN3-uS-qEe" secondAttribute="bottom" constant="5" id="D2H-HI-gTW"/>
+                                                <constraint firstItem="ClM-Bf-Mfs" firstAttribute="top" secondItem="gM5-KJ-Gq4" secondAttribute="topMargin" constant="5" id="Naj-dY-yCV"/>
+                                                <constraint firstItem="lja-K5-cVb" firstAttribute="leading" secondItem="gM5-KJ-Gq4" secondAttribute="leading" constant="15" id="ZCz-G9-G55"/>
+                                                <constraint firstItem="ClM-Bf-Mfs" firstAttribute="leading" secondItem="lja-K5-cVb" secondAttribute="trailing" constant="21" id="aIJ-jI-iOt"/>
+                                                <constraint firstItem="Hjb-D4-YsA" firstAttribute="top" secondItem="ClM-Bf-Mfs" secondAttribute="bottom" id="iE1-KU-Oue"/>
+                                                <constraint firstAttribute="bottom" secondItem="lja-K5-cVb" secondAttribute="bottom" id="iYS-KB-j6N"/>
+                                                <constraint firstItem="zN3-uS-qEe" firstAttribute="leading" secondItem="lja-K5-cVb" secondAttribute="trailing" constant="8" symbolic="YES" id="kPu-ZI-vQq"/>
+                                                <constraint firstItem="Hjb-D4-YsA" firstAttribute="leading" secondItem="lja-K5-cVb" secondAttribute="trailing" constant="21" id="sau-KY-mHz"/>
+                                                <constraint firstItem="J2l-Tf-sBD" firstAttribute="leading" secondItem="lja-K5-cVb" secondAttribute="trailing" constant="21" id="t4F-Mr-jib"/>
+                                                <constraint firstAttribute="bottom" secondItem="J2l-Tf-sBD" secondAttribute="bottom" constant="10" id="xB6-zY-AxF"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fjx-i0-ugu">
-                                        <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fjx-i0-ugu" id="eN3-og-9Px">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="bookAuthor" destination="Hjb-D4-YsA" id="uR0-Q0-Fkp"/>
+                                            <outlet property="bookImage" destination="lja-K5-cVb" id="9Ih-2M-jcn"/>
+                                            <outlet property="bookLinkLabel" destination="J2l-Tf-sBD" id="7Fc-sp-9dP"/>
+                                            <outlet property="bookTitle" destination="ClM-Bf-Mfs" id="edr-Zc-3Xj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUf-o8-6b4">
+                                <rect key="frame" x="302" y="109" width="77" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SvO-g2-M7Z"/>
+                                </connections>
+                            </button>
+                            <tabBar contentMode="scaleToFill" barStyle="black" id="V8j-NY-lzr">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem systemItem="search" id="VDN-bd-iAd"/>
+                                    <tabBarItem systemItem="favorites" id="zyJ-US-Bqe"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.045187087286086308" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Nb2-Xv-V4p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="0gb-vU-LSO"/>
+                            <constraint firstItem="z6E-2T-Ndx" firstAttribute="top" secondItem="dXY-5T-p7x" secondAttribute="bottom" constant="35.5" id="5oC-bZ-esv"/>
                             <constraint firstItem="z6E-2T-Ndx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HHk-7r-TWf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="z6E-2T-Ndx" secondAttribute="trailing" id="KNW-OM-5NF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="z6E-2T-Ndx" secondAttribute="bottom" id="W18-dF-E21"/>
+                            <constraint firstItem="dXY-5T-p7x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="61.5" id="Otl-ib-UxT"/>
+                            <constraint firstAttribute="bottom" secondItem="z6E-2T-Ndx" secondAttribute="bottom" id="bbo-eB-SSH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dXY-5T-p7x" secondAttribute="trailing" constant="35" id="d2H-yU-8cB"/>
                             <constraint firstItem="Nb2-Xv-V4p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="fgF-XD-UgQ"/>
                             <constraint firstItem="dXY-5T-p7x" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="tIc-90-4Kp"/>
-                            <constraint firstItem="dXY-5T-p7x" firstAttribute="top" secondItem="Nb2-Xv-V4p" secondAttribute="bottom" constant="15" id="vTA-JI-xi3"/>
-                            <constraint firstItem="z6E-2T-Ndx" firstAttribute="top" secondItem="dXY-5T-p7x" secondAttribute="bottom" constant="35" id="yWZ-K3-o1p"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="nUf-o8-6b4" id="kJb-2R-Lsl"/>
+                        <outlet property="resultTableView" destination="z6E-2T-Ndx" id="xPf-Wp-NYh"/>
+                        <outlet property="searchLabel" destination="Nb2-Xv-V4p" id="fII-dJ-z1z"/>
+                        <outlet property="searchTextField" destination="dXY-5T-p7x" id="Afm-AA-c3g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,8 +176,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

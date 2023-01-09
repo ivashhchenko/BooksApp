@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    public func normalizeForSearchParameter(string: String) -> String? {
+    public func urlEncode(string: String) -> String? {
         return string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
     

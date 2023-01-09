@@ -1,0 +1,6 @@
+module Pods_BooksTestTask {
+  umbrella header "Pods-BooksTestTask-umbrella.h"
+
+  export *
+  module * { export * }
+}
