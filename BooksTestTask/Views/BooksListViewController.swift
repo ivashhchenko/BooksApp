@@ -18,21 +18,39 @@ class BooksListViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var resultTableView: UITableView!
     
-    var spinner: UIActivityIndicatorView = {
+    let notFoundView = UIView()
+    
+    let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView()
         spinner.style = .large
         spinner.translatesAutoresizingMaskIntoConstraints = false
-        
-        
+ 
         return spinner
     }()
     
+    let notfoundLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Not found"
+        label.font = UIFont(name: "Helvetica", size: 21)
+        label.textColor = .darkGray
+        label.textAlignment = .center
+        return label
+    }()
     
+    let notFoundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "book")
+        imageView.alpha = 0.5
+        imageView.tintColor = .white
+        
+        return imageView
+    }()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateConstraints()
-        resultTableView.isHidden = true
+        updateView()
         
         resultTableView.delegate = self
         resultTableView.dataSource = self
@@ -40,8 +58,12 @@ class BooksListViewController: UIViewController {
 
     }
     
+    
+    
+    
     func startSpinning() {
         view.addSubview(spinner)
+        resultTableView.isHidden = true
         spinner.alpha = 1
         spinner.startAnimating()
         
@@ -49,7 +71,7 @@ class BooksListViewController: UIViewController {
     
     func stopSpinning() {
         spinner.alpha = 0
-        //spinner.removeFromSuperview()
+        resultTableView.isHidden = false
         spinner.stopAnimating()
     }
     
@@ -61,28 +83,39 @@ class BooksListViewController: UIViewController {
 
     @IBAction func searchTextFieldTouchInsideAction(_ sender: Any) {
         animateSearchTextField()
+        
     }
     
     @IBAction func searchTextFieldReturnAction(_ sender: Any) {
+        self.notFoundView.isHidden = true
         startSpinning()
         
         BooksApiService.shared.loadBooks(name: self.searchTextField.text!, completion: { result in
-            guard let volumeListResponse = result as? BooksResponse,
-                    let volumes = volumeListResponse.items else {
-                return
+            if let volumeListResponse = result as? BooksResponse,
+                  let volumes = volumeListResponse.items {
+                
+                self.books = volumes
+                self.resultTableView.reloadData()
+                self.stopSpinning()
+                self.resultTableView.isHidden = false
+                
+            } else {
+                
+                self.stopSpinning()
+                self.notFoundView.isHidden = false
+                
             }
             
-            self.books = volumes
-            self.resultTableView.reloadData()
-            self.stopSpinning()
-            self.resultTableView.isHidden = false
+            
         })
         
     }
     
     @IBAction func cancelButtonAction(_ sender: Any) {
         self.view.endEditing(true)
+        self.resultTableView.isHidden = true
         animateCancelButton()
+        stopSpinning()
         self.searchTextField.text = ""
         
         if !books.isEmpty {
@@ -132,19 +165,11 @@ class BooksListViewController: UIViewController {
         cancelSearch()
     }
     
-    func updateConstraints() {
-        //view.addSubview(spinner)
-        view.addSubview(spinner)
-        spinner.snp.makeConstraints { make in
-            make.width.height.equalTo(40)
-            make.center.equalTo(self.view)
-            
-        }
+    func updateView() {
+        resultTableView.isHidden = true
+        notFoundView.isHidden = true
         
-        cancelButton.snp.makeConstraints { make in
-            make.top.equalTo(searchTextField).inset(0)
-            make.trailing.equalTo(searchTextField).inset(-cancelButton.frame.width * 2)
-        }
+        
     }
     
     func loadImage(url: String, imageView: UIImageView) {
@@ -163,6 +188,45 @@ class BooksListViewController: UIViewController {
         }
         
     }
+    
+    func updateConstraints() {
+        
+        view.addSubview(notFoundView)
+        notFoundView.snp.makeConstraints { make in
+            make.width.equalTo(view)
+            make.top.equalTo(searchTextField).inset(100)
+            make.center.equalTo(view)
+        }
+        
+        notFoundView.addSubview(notFoundImageView)
+        notFoundImageView.snp.makeConstraints { make in
+            make.width.height.equalTo(70)
+            make.center.equalToSuperview()
+        }
+        
+        notFoundView.addSubview(notfoundLabel)
+        notfoundLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(notFoundImageView).inset(-30)
+            make.centerX.equalTo(notFoundImageView)
+            make.width.equalTo(100)
+        }
+        
+        
+        
+        view.addSubview(spinner)
+        spinner.snp.makeConstraints { make in
+            make.width.height.equalTo(40)
+            make.center.equalTo(view)
+            
+        }
+        
+        cancelButton.snp.makeConstraints { make in
+            make.top.equalTo(searchTextField).inset(0)
+            make.trailing.equalTo(searchTextField).inset(-cancelButton.frame.width * 2)
+        }
+    }
+    
+
     
     
 
