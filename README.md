@@ -13,16 +13,25 @@
    * Snapkit ( Autolayout )
    
 ## Screenshots:
- * Main screen
+* #### Main screen
 <img src="https://i.ibb.co/MsrYYp2/IMAGE-2023-01-14-03-22-10.jpg" width="260" height="562">
- * Search
+
+* #### Search
 <img src="https://i.ibb.co/myWzF8S/IMAGE-2023-01-14-03-33-18.jpg" width="260" height="562">
- * Let's wait a bit..
+
+* #### Let's wait a bit..
 <img src="https://i.ibb.co/5cqHrjz/IMAGE-2023-01-14-03-35-02.jpg" width="260" height="562">
- * Result!
+
+* #### Result!
 <img src="https://i.ibb.co/D1prQ5f/IMAGE-2023-01-14-03-35-49.jpg" width="260" height="562">
 
-P.S search filter - match in text
+P.S search filter - match in description
+
+## What to do next? 
+* Create a book details view
+* Create Unit Testing with XCTest
+* Add "Favourites" category
+
   
   
   
