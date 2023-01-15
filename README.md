@@ -1,19 +1,30 @@
-# BooksApp
-## Using GoogleBooksApi
+# Books app using Google Books API
+#### Simple project in Swift about how to use Google Books API and how to display information after fetch it
 
-Frameworks: 
-   >Alamofire ( For Parsing )
+
+* Dependecy Manager: CocoaPods https://cocoapods.org/
+* IDE: Xcode https://itunes.apple.com/es/app/xcode/id497799835
+* Google Books API: https://developers.google.com/books/docs/v1/using
+
+
+## Frameworks: 
+   * Alamofire ( For Parsing )
   
-   >Snapkit ( Autolayout )
+   * Snapkit ( Autolayout )
+   
+## Screenshots:
+ * Main screen
+<img src="https://i.ibb.co/MsrYYp2/IMAGE-2023-01-14-03-22-10.jpg" width="260" height="562">
+ * Search
+<img src="https://i.ibb.co/myWzF8S/IMAGE-2023-01-14-03-33-18.jpg" width="260" height="562">
+ * Let's wait a bit..
+<img src="https://i.ibb.co/5cqHrjz/IMAGE-2023-01-14-03-35-02.jpg" width="260" height="562">
+ * Result!
+<img src="https://i.ibb.co/D1prQ5f/IMAGE-2023-01-14-03-35-49.jpg" width="260" height="562">
+
+P.S search filter - match in text
   
   
   
- # Screenshots
-## Main Screen 
-![Main Screen](https://i.ibb.co/MsrYYp2/IMAGE-2023-01-14-03-22-10.jpg) 
-## Search
-![Search](https://i.ibb.co/myWzF8S/IMAGE-2023-01-14-03-33-18.jpg)
-## let's wait a bit..
-![Loading](https://i.ibb.co/5cqHrjz/IMAGE-2023-01-14-03-35-02.jpg)
-## Result!
-![Result](https://i.ibb.co/D1prQ5f/IMAGE-2023-01-14-03-35-49.jpg)
+  
+
